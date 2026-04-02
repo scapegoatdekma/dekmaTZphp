@@ -1,0 +1,238 @@
+:root {
+    --bg: #f3f4f6;
+    --panel: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --border: #d1d5db;
+    --soft: #f8fafc;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.header {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.header h1 {
+    margin: 0 0 6px;
+    font-size: 26px;
+}
+
+.header p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 12px;
+    align-items: start;
+}
+
+.console,
+.accordion-wrap {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.console-head,
+.accordion-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.status {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+pre {
+    margin: 0;
+    min-height: 620px;
+    max-height: 80vh;
+    overflow: auto;
+    padding: 12px;
+    background: #fafafa;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.accordion {
+    padding: 8px;
+}
+
+details.request {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fff;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+summary {
+    cursor: pointer;
+    padding: 10px 12px;
+    font-weight: 600;
+    list-style: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: "+";
+    margin-left: auto;
+    color: var(--muted);
+}
+
+details[open] summary::after {
+    content: "-";
+}
+
+.summary-title {
+    font-size: 14px;
+}
+
+.method-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 76px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    background: #e5e7eb;
+    color: #111827;
+}
+
+.request-get {
+    --method-color: #10b981;
+}
+
+.request-post {
+    --method-color: #f59e0b;
+}
+
+.request-put {
+    --method-color: #3b82f6;
+}
+
+.request-delete {
+    --method-color: #ef4444;
+}
+
+.request-get summary,
+.request-post summary,
+.request-put summary,
+.request-delete summary {
+    background: linear-gradient(90deg, color-mix(in srgb, var(--method-color) 20%, white) 0%, #ffffff 70%);
+}
+
+.request-get .method-chip,
+.method-get {
+    background: color-mix(in srgb, #10b981 14%, white);
+    color: #047857;
+}
+
+.request-post .method-chip,
+.method-post {
+    background: color-mix(in srgb, #f59e0b 14%, white);
+    color: #b45309;
+}
+
+.request-put .method-chip,
+.method-put {
+    background: color-mix(in srgb, #3b82f6 14%, white);
+    color: #1d4ed8;
+}
+
+.request-delete .method-chip,
+.method-delete {
+    background: color-mix(in srgb, #ef4444 14%, white);
+    color: #b91c1c;
+}
+
+.content {
+    padding: 0 12px 12px;
+    border-top: 1px solid var(--border);
+}
+
+label {
+    display: block;
+    margin: 8px 0 4px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+input,
+textarea,
+select,
+button {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 9px 10px;
+    font-size: 14px;
+    background: #fff;
+    color: var(--text);
+}
+
+textarea {
+    min-height: 84px;
+    resize: vertical;
+}
+
+button {
+    margin-top: 10px;
+    border: 0;
+    cursor: pointer;
+    font-weight: 700;
+    transition: opacity 0.15s ease;
+}
+
+button:hover {
+    opacity: 0.92;
+}
+
+@media (max-width: 1100px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    pre {
+        min-height: 300px;
+        max-height: 420px;
+    }
+}
